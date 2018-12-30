@@ -1,15 +1,16 @@
 import React from 'react';
 
+import Form from './form';
+import Feedback from './feedback';
 // import './Guess.css';
 
 export default function Guess(props) {
+    const { feedback, guess  } = props;
+
     return (
         <div className="guess">
-            {props.text}
+            <Feedback feedback={feedback} guess={guess} />
+            <Form guessing={guess => props.guessing(guess)} /> 
         </div>
     );
-};
-
-Guess.defaultProps = {
-    text: ''
 };
